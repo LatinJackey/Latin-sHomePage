@@ -1,0 +1,33 @@
+
+.img{
+    height: 100px;
+    width: 100px;
+}
+#firstimg{
+    -webkit-animation: first 5s ease-in-out 0s 1;
+}
+#secondimg{
+    -webkit-animation: second 5s ease-in-out 5s  1;
+}
+#threeimg{
+    -webkit-animation: three 5s ease-in-out 10s 1;
+}
+/* @keyframes myfirst{
+    from{background-color: yellow};
+    to{background-color: blue};
+} */
+@-webkit-keyframes first 
+{
+    0%{opacity: 100}
+    100%{opacity: 0}
+}
+@-webkit-keyframes second 
+{
+    0%{opacity: 100}
+    100%{opacity: 0}
+}
+@-webkit-keyframes three 
+{
+    0%{opacity: 100}
+    100%{opacity: 0}
+}
