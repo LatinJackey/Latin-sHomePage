@@ -9,10 +9,9 @@
         <script src="./JS/music.js"></script>
         <style>
             body{
-                margin: 100px;
-                background-image: url(./images/麦迪.jpg);
-                background-size: 100%;
-                height: 100%;
+                margin: 20px;
+                background: url(./images/麦迪.jpg) center/cover;
+                /* background-size: 100%; */
             }
             button{
                 opacity: 0.9;
@@ -50,7 +49,7 @@
             <button id="Menu" type="button" onclick="MenuClick()" style="opacity:0"></button>
         </div>
 
-        <div style="text-align: center;position: relative; left:0px; right:80px;background-color:gray; opacity:0.8;border-radius: 15px; top:-50px; height:900px;">
+        <div style="text-align: center;position: relative; left:0px; right:80px;background-color:gray; opacity:0.8;border-radius: 15px; top:-50px;">
             <h1 style="font-size: 50px;position: relative; top:20px;">Welcome to LatinJackey's Space</h1>
             <div style="background:center/100%;"></div>
             <video src="./Movie/mda-ibkh8kti4s0sqb48.mp4" autoplay loop style="width: 100%;z-index: 999;"></video>
@@ -58,7 +57,7 @@
         </div>
         
 
-        <img src="images/音乐背景图.jpg" alt="" style="position: absolute;right:100px;border-radius:15px">
+        <img src="images/音乐背景图.jpg" alt="" style="width:50%;position:absolute; right:10px; border-radius:15px">
         <div>
             <p style="font-size:30px; color:white">正在播放...</p>
             <button class="musicButton" type="button" style="background:url(./images/开始播放.png) transparent center/100%;" id="ChangeStatus"/>
