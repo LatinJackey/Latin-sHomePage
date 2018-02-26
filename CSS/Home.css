@@ -1,0 +1,32 @@
+body{
+    margin: 20px;
+    background: url(/images/麦迪.jpg) center/cover;
+}
+button{
+    opacity: 0.9;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    height: 80px;
+    width: 80px; 
+    line-height: 1000px;
+}
+#Menu{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    height: 60px;
+    width: 60px;
+}
+.musicButton{
+    position: relative;
+    left: 10px;
+    width:10px;
+    height:10px;
+    border:0;
+    height:60px;
+    width:60px
+}
