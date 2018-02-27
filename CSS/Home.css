@@ -28,12 +28,14 @@ button{
     height:10px;
     border:0;
     height:60px;
-    width:60px
+    width:60px;
 }
 
 
 p ,h1{
+    width:100%;
     word-wrap:break-word;
+    text-align: center;
     /* font-size: 36px; */
     font-size:auto;
   }
