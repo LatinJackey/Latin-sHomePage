@@ -1,6 +1,6 @@
 body{
     margin: 20px;
-    background: url(/Latin-sHomePage/images/麦迪.jpg) center/cover;
+    background: url(../images/麦迪.jpg) center/cover;
 }
 button{
     opacity: 0.9;
@@ -30,3 +30,35 @@ button{
     height:60px;
     width:60px
 }
+
+
+p ,h1{
+    word-wrap:break-word;
+    /* font-size: 36px; */
+    font-size:auto;
+  }
+  
+  @media (max-width: 1000px) {
+    p ,h1 {
+      font-size: 30px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    p ,h1 {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    p ,h1 {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    p ,h1 {
+      font-size: 14px;
+    }
+  }
+

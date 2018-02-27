@@ -3,52 +3,38 @@
         <title>LatinJackey's Space</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <link rel="stylesheet" href="/Latin-sHomePage/CSS/anitation.css">
-        <link rel="stylesheet" href="/Latin-sHomePage/CSS/Home.css">
+        <link rel="stylesheet" href="./CSS/anitation.css">
+        <link rel="stylesheet" href="./CSS/Home.css">
         <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> 
         <script src="./JS/js.js"></script>
-        <script src="./JS/music.js"></script>
-        <style>
-           
-            
-        </style>
+        <script src="./JS/AudioControl.js"></script>
+        <audio id="Home_Audio" src="./musics/北极星.mp3" loop="loop"></audio>
     </head>
     <body>
         <div style="position: absolute;left: 0px;top: 0px;height: 80px;width: 80px;">
-            <img id="Menu" src="images/Menu.png" alt="" style="opacity:0">
+            <img id="Menu" src="images/Menu.png" alt="" style="opacity:0">
             <button id="Menu" type="button" onclick="MenuClick()" style="opacity:0"></button>
         </div>
 
-        <div style="text-align: center;position: relative; left:0px; right:80px;background-color:gray; opacity:0.8;border-radius: 15px; top:-50px;">
-            <h1 style="font-size: 50px;position: relative; top:20px;">Welcome to LatinJackey's Space</h1>
+        <div style="text-align: center; top:20px;;background-color:gray; opacity:0.9;border-radius: 15px;">
+            <h1 style="top:20px;">Welcome to LatinJackey's Space</h1>
             <div style="background:center/100%;"></div>
-            <video src="./Movie/mda-ibkh8kti4s0sqb48.mp4" autoplay loop style="width: 100%;z-index: 999;"></video>
-            <h1 style="font-size: 50px;position: relative; top:0px;">Welcome to LatinJackey's Space</h1>
+            <video src="./Movie/天赋异禀剪辑.mp4" loop style="width: 100%;z-index: 999;"></video>
+            <h5 style="top:20px;">Welcome to LatinJackey's Space</h5>
+        </div >
+       
+        <div style="height:100%; background-color:green;">
+            <p style=" position:relative; width:40%; background-color:red;color:white; ">正在播放...</p>
+            <img src="images/音乐背景图.jpg" alt="" style="position:absolute; right:20px;width:50%; border-radius:15px">
+            <button class="musicButton" type="button" style=" background:url(./images/开始播放.png) transparent center/100%;" id="Music_ChangeStatus"/>
+            <button class="musicButton" type="button" style=" background:url(./images/下一首.png) transparent center/100%;" id="Music_Next" />
         </div>
         
-
-        <img src="images/音乐背景图.jpg" alt="" style="width:50%;position:absolute; right:10px; border-radius:15px">
-        <div>
-            <p style="font-size:30px; color:white">正在播放...</p>
-            <button class="musicButton" type="button" style="background:url(./images/开始播放.png) transparent center/100%;" id="ChangeStatus"/>
-            <button class="musicButton" type="button" style="background:url(./images/下一首.png) transparent center/100%;" id="Next" />
-        </div>
+       
         
-        <!-- <video src="./Movie/mda-hm71tzuwy99i33un.mp4" autoplay loop></video> -->
-        
-        <audio id="music" src="./musics/北极星.mp3" loop="loop"></audio>
-
-
-        <div>
-            <img class="img" id="firstimg" src="./images/1.jpg" alt="">
-            <img class="img" id="secondimg" src="./images/2.jpg" alt="">
-            <img class="img" id="threeimg" src="./images/3.jpg" alt="">
-        </div>
-        <div>
-                <img class="img" id="firstimg" src="./images/1.jpg" alt="">
-                <img class="img" id="secondimg" src="./images/2.jpg" alt="">
-                <img class="img" id="threeimg" src="./images/3.jpg" alt="">
-        </div>
+        <!-- <img class="img" id="firstimg" src="./images/1.jpg" alt="">
+        <img class="img" id="secondimg" src="./images/2.jpg" alt="">
+        <img class="img" id="threeimg" src="./images/3.jpg" alt=""> -->
     </body>
 </html>
 
