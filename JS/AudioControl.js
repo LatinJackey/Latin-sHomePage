@@ -28,9 +28,9 @@ var Music ={
     ChangeMusic:function(musicName){
         var audio = document.getElementById("Home_Audio");
         if(musicName){
-            audio.src= "./musics/"+musicName+".mp3";
+            audio.src= "./Musics/"+musicName+".mp3";
         }else{
-            audio.src= "./musics/"+musics[Music.CreatMusic()]+".mp3";
+            audio.src= "./Musics/"+musics[Music.CreatMusic()]+".mp3";
         }
         Music.ChangeStatus(audio,true);
     },
