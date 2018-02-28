@@ -42,10 +42,27 @@ var Music ={
         var indexRandom = Math.random() * 7;
         let chooseNum = Math.floor(indexRandom);
         return chooseNum;
+    },
+
+    Music_OnMouseover:function(){
+        document.getElementById("Music_tip").style.display = "block";
+    },
+    Music_OnMouseOut:function(){
+        document.getElementById("Music_tip").style.display = "none";
     }
 }
 
 window.onload = function () {
+    //鼠标移动提示
+    var getDom = document.getElementById("Music_ChangeStatus");
+    getDom.onmouseover = function(){
+        Music.Music_OnMouseover();
+    }
+    getDom.onmouseout = function(){
+        Music.Music_OnMouseOut();
+    }
+
+    //点击事件
     var audio = document.getElementById("Home_Audio");
     Music.ChangeStatus(audio,true);
     document.getElementById("Music_ChangeStatus").onclick = function(){
@@ -53,6 +70,7 @@ window.onload = function () {
         isStartPlay = Boolean(isStartPlay);
         Music.ChangeStatus(audio,!isStartPlay);
     } ;
+
     document.getElementById("Music_Next").onclick = function(){
         Music.ChangeMusic();
     };
