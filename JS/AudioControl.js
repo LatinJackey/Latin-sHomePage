@@ -1,7 +1,42 @@
 
 var currentHasMusic = false;
 
+var musics = new Array();
+musics[0] = "Calvo,Noubya - Light It Up (Original Mix)";
+musics[1] = "EDX - High On You";
+musics[2] = "Josh Turner - Your Man";
+musics[3] = "Moguai,Cheat Codes - Hold On (Radio Edit)";
+musics[4] = "刘允乐 - 太早";
+musics[5] = "北极星";
+musics[6] = "谭茜 - 光明";
+
 var Music ={
+
+    MusicMain:function(){
+        MyMusic.isEnd();
+        //鼠标移动提示
+        var getDom = document.getElementById("Music_ChangeStatus");
+        getDom.onmouseover = function(){
+            Music.Music_OnMouseover();
+        }
+        getDom.onmouseout = function(){
+            Music.Music_OnMouseOut();
+        }
+
+        //点击事件
+        var audio = document.getElementById("Home_Audio");
+        Music.ChangeStatus(audio,true);
+        document.getElementById("Music_ChangeStatus").onclick = function(){
+            var isStartPlay = !audio.paused;
+            isStartPlay = Boolean(isStartPlay);
+            Music.ChangeStatus(audio,!isStartPlay);
+        } ;
+
+        document.getElementById("Music_Next").onclick = function(){
+            Music.ChangeMusic();
+        };
+    },
+
     /*改变当前播放状态
     @audio:播放器
     @isStartPlay:是否开始播放音乐
@@ -52,26 +87,14 @@ var Music ={
     }
 }
 
-window.onload = function () {
-    //鼠标移动提示
-    var getDom = document.getElementById("Music_ChangeStatus");
-    getDom.onmouseover = function(){
-        Music.Music_OnMouseover();
-    }
-    getDom.onmouseout = function(){
-        Music.Music_OnMouseOut();
-    }
 
-    //点击事件
-    var audio = document.getElementById("Home_Audio");
-    Music.ChangeStatus(audio,true);
-    document.getElementById("Music_ChangeStatus").onclick = function(){
-        var isStartPlay = !audio.paused;
-        isStartPlay = Boolean(isStartPlay);
-        Music.ChangeStatus(audio,!isStartPlay);
-    } ;
-
-    document.getElementById("Music_Next").onclick = function(){
-        Music.ChangeMusic();
-    };
+//=========================定时器检测状态函数=======================
+var MyMusic = {
+    isEnd:function(){
+        var audio = document.getElementById("Home_Audio");
+        var isEnd = audio.ended;
+        if (!audio.paused&&audio.ended){
+            Music.ChangeMusic(audio,true);
+        }
+    }
 }
