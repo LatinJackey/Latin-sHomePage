@@ -49,11 +49,11 @@ var Music ={
                 Music.ChangeMusic();
             }else{
                 audio.play();
-                Dom_Image.style.backgroundImage="url('./images/暂停播放.png')";
+                Dom_Image.style.backgroundImage="url('./Source/Images/暂停播放.png')";
             }
         }else{
             audio.pause();
-            Dom_Image.style.backgroundImage="url('./images/开始播放.png')";
+            Dom_Image.style.backgroundImage="url('./Source/Images/开始播放.png')";
         }
     },
 
@@ -63,9 +63,9 @@ var Music ={
     ChangeMusic:function(musicName){
         var audio = document.getElementById("Home_Audio");
         if(musicName){
-            audio.src= "./Musics/"+musicName+".mp3";
+            audio.src= "./Source/Musics/"+musicName+".mp3";
         }else{
-            audio.src= "./Musics/"+musics[Music.CreatMusic()]+".mp3";
+            audio.src= "./Source/Musics/"+musics[Music.CreatMusic()]+".mp3";
         }
         Music.ChangeStatus(audio,true);
     },
@@ -96,7 +96,7 @@ var MyMusic = {
         var isEnd = audio.ended;
         console.log(audio.isPause,audio.ended);
         if (audio.ended){
-            Dom_Image.style.backgroundImage="url('./images/开始播放.png')";
+            Dom_Image.style.backgroundImage="url('./Source/Images/开始播放.png')";
             Music.ChangeMusic();
         }
     }
