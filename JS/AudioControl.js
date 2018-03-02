@@ -23,8 +23,8 @@ var Music ={
             Music.Music_OnMouseOut();
         }
 
-        //点击事件
         var audio = document.getElementById("Home_Audio");
+        
         Music.ChangeStatus(audio,true);
         document.getElementById("Music_ChangeStatus").onclick = function(){
             var isStartPlay = !audio.paused;
@@ -91,10 +91,13 @@ var Music ={
 //=========================定时器检测状态函数=======================
 var MyMusic = {
     isEnd:function(){
+        var Dom_Image = document.getElementById("Music_ChangeStatus");
         var audio = document.getElementById("Home_Audio");
         var isEnd = audio.ended;
-        if (!audio.paused&&audio.ended){
-            Music.ChangeMusic(audio,true);
+        console.log(audio.isPause,audio.ended);
+        if (audio.ended){
+            Dom_Image.style.backgroundImage="url('./images/开始播放.png')";
+            Music.ChangeMusic();
         }
     }
 }

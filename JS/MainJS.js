@@ -1,4 +1,4 @@
 window.onload= function(){
-    MyTimer.gtimer();
+    MyTimer.MyTimerMain();
     Music.MusicMain();
 }

@@ -2,12 +2,11 @@
 
 var MyTimer={
 
-    gtimer:function(){
+    MyTimerMain:function(){
         setInterval(MyTimer.startTimer,1000);
         MyTimer.startTimer();
     }, 
     startTimer:function(){
-        
         MyMusic.isEnd();
         var dom_tiemr = document.getElementById("Timer");
         var currentDate = MyTimer.getCurrentDate();
@@ -33,7 +32,3 @@ var MyTimer={
         return Num>=10?Num:("0"+Num);
     },
 }
-
-// window.onload =function(){
-//     MyTimer.gtimer();
-// }
