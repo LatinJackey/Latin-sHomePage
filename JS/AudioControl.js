@@ -95,7 +95,6 @@ var MyMusic = {
         var audio = document.getElementById("Home_Audio");
         var isEnd = audio.ended;
         var file = new FileReader();
-        file
         console.log(audio.isPause,audio.ended);
         if (audio.ended){
             Dom_Image.style.backgroundImage="url('./Source/Images/开始播放.png')";

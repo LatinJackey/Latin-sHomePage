@@ -8,13 +8,16 @@
         <script src="./JS/AudioControl.js"></script>
         <script src="./JS/Timer.js"></script>
         <script src="./JS/MainJS.js"></script>
+        <script src="./JS/MainMenu.js"></script>
         <audio id="Home_Audio"></audio>
         
     </head>
     <body>
-        <div style="position: absolute;left: 0px;top: 0px;height: 80px;width: 80px;">
-            <img id="Menu" src="/Source/Images/Menu.png" alt="" style="opacity:0">
-            <button id="Menu" type="button" onclick="MenuClick()" style="opacity:0"></button>
+
+        <div style="position:relative">
+            <input type="button" value="我的简历" id = "Main_MyResume"> 
+            <input type="button" value="我的相册" id = "Main_MyAlbum">
+            <input type="button" value="我的分享" id = "Main_MyShare">
         </div>
 
         <div style="text-align: center; background-color:gray; opacity:0.85;border-radius: 15px;">
@@ -28,7 +31,6 @@
         </div >
 
         <div style="height:100%; opacity:0.8;">
-            <p style="text-align: center; width:100%; color:white; ">==============播放器==============</p>
             <img src="./Source/Images/音乐背景图.jpg" alt="" style="position:absolute; right:20px;width:50%; border-radius:15px">
             <div>
                 <button class="musicButton" type="button" style="background:url(./Source/Images/开始播放.png) transparent center/100%;" id="Music_ChangeStatus"/>
