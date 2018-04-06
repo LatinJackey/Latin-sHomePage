@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>内存分布</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div>
+		<h2>内存分布：</h2>
+		<img style="width: 200px" src="../../Source/Images/Share/内存分布.png">
+	</div>
+	<div>
+		<h3>STACK区(栈区)</h3>
+		<p>STACK:栈区,地址分布由高至低，存放函数，局部变量</p>
+	</div>
+	<div>
+		<h3>HEAP区(堆区)</h3>
+		<p>HEAP:堆区,地址分布由低至高，存放由alloc申请的变量</p>
+	</div>
+	<div>
+		<h3>BSS(数据段)</h3>
+		<p>BSS:存放未初始化的全局变量、静态变量，不放在可执行文件中，由系统负责管理</p>
+	</div>
+	<div>
+		<h3>DATA(数据段)</h3>
+		<p>DATA:存放已初始化的全局变量、静态变量，放在可执行文件中</p>
+	</div>
+	<div>
+		<h3>RODATA(数据段)</h3>
+		<p>RODATA:存放常量,不可变量</p>
+	</div>
+	<div>
+		<h3>TEXT(代码段)</h3>
+		<p>TEXT:存放代码</p>
+	</div>
+	
+</body>
+</html>
