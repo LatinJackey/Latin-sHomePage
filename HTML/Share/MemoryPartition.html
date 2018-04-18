@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>内存分布</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div>
+		<h2>内存分布：</h2>
+		<img style="width: 200px" src="../../Source/Images/Share/内存分布.png">
+	</div>
+	<div>
+		<h3>STACK区(栈区)</h3>
+		<p>STACK:栈区,地址分布由高至低，存放函数，局部变量</p>
+	</div>
+	<div>
+		<h3>HEAP区(堆区)</h3>
+		<p>HEAP:堆区,地址分布由低至高，存放由alloc申请的变量</p>
+	</div>
+	<div>
+		<h3>BSS(数据段)</h3>
+		<p>BSS:存放未初始化的全局变量、静态变量，不放在可执行文件中，由系统负责管理</p>
+	</div>
+	<div>
+		<h3>DATA(数据段)</h3>
+		<p>DATA:存放已初始化的全局变量、静态变量，放在可执行文件中</p>
+	</div>
+	<div>
+		<h3>RODATA(数据段)</h3>
+		<p>RODATA:存放常量,不可变量</p>
+	</div>
+	<div>
+		<h3>TEXT(代码段)</h3>
+		<p>TEXT:存放代码</p>
+	</div>
+	<div>
+		<h3>OC中BLOCK存放位置</h3>
+		<p>OC 中的block存储位置</p>
+		<p>以下所有在ARC情况下：</p>
+		<p>一、block块的存储位置（block块入口地址）：可能存放在2个地方：代码区、堆区(程序分5个区，还有常量区、全局区和栈区，对于MRC情况下代码还可能存在栈区。</p>
+		<p>情况1：代码区</p>
+		<p>不访问处于栈区的变量(例如局部变量),且不访问处于堆区(alloc创建的对象)，也就是说可以访问全局变量</p>
+		<p>/**
+  没有访问任何变量
+ */
+int main(int argc, char * argv[]) {
+    void (^block)(void) = ^{
+        NSLog(@"===");
+    };
+    block();
+}
+
+复制代码
+复制代码
+
+/**
+  访问了全局（静态）变量
+ */
+int  iVar = 10;
+int main(int argc, char * argv[]) {
+    void (^block)(void) = ^{
+        NSLog(@"===%d",iVar);
+    };
+    block();
+}
+
+复制代码
+
+ 
+
+情况2：堆区
+
+    如果访问了处于栈区的变量（例如局部变量），或处于堆区的变量(例如alloc创建的对象)。都会存放在堆区。(实际是放在栈区，然后ARC情况下自动又拷贝到堆区)
+复制代码
+
+/**
+  访问局部变量
+ */
+int main(int argc, char * argv[]) {
+    int iVar = 10;
+    void (^block)(void) = ^{
+        NSLog(@"===%d",iVar);
+    };
+    block();
+}
+
+复制代码</p>
+
+	<p>二、代码存放在堆区时，就需要特别注意，因为堆区不像代码区不变化，堆区是不断变化的（不断创建销毁）。因此代码有可能会被销毁（当没有强指针指向时），如果这时再访问此段代码则会程序崩溃。因此，对于这种情况，我们在定义一个block属性时应指定为strong，或copy:</p>
+ 
+
+
+
+@property (nonatomic, strong) void (^myBlock)(void); // 这样就有强指针指向它
+
+@property (nonatomic, copy)  void (^myBlock)(void);  // 并不会在堆区copy一份，原因见 三
+
+而对于第一种情况（代码存在代码区），使用strong，copy(不会复制一份到堆区)也可以。因此定义block时最好指定为strong(推荐)或copy。
+
+三、指定为copy后是否会拷贝一份呢？（或者说是浅拷贝还是深拷贝）
+
+        1 copy可变变量：在赋值指针的同时也会复制指针指向的内存区域。深拷贝，例如NSMutableString对象。
+
+        2 copy不可变变量：等同于strong，还是浅拷贝，例如NSString对象。
+
+    因为block是一段代码，即不可变的，所以并不会深拷贝。
+	</div>
+
+</body>
+</html>
